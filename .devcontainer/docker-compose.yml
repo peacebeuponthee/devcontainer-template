@@ -6,8 +6,12 @@ services:
       context: .
       dockerfile: Dockerfile
     
-    # networks:
-    #   - smart-net
+    networks:
+      - smart-net
+    
+    environment:
+      - TEST_ENV_VAR=test-env-var
+
     volumes:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock 
@@ -27,7 +31,7 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
-# networks:
-#   smart-net:
-#     name: smart-net
-#     external: true
+networks:
+  smart-net:
+    name: smart-net
+    external: true
