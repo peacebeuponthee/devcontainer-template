@@ -30,4 +30,4 @@ services:
 # networks:
 #   smart-net:
 #     name: smart-net
-    external: true
+#     external: true

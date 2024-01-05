@@ -3,10 +3,9 @@
 {
 	"name": "Docker outside of Docker",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": { 
-		"context": "..",
-		"dockerfile": "Dockerfile"
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "devcontainer-docker",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
@@ -25,10 +24,10 @@
 	// "forwardPorts": [],
 	// "appPort": ["1337:1337"],
 	
-	"runArgs": [
-		"--network=smart-net",
-		"--env-file",".devcontainer/devcontainer.env"
-	],
+	// "runArgs": [
+	// 	"--network=smart-net",
+	// 	"--env-file",".devcontainer/devcontainer.env"
+	// ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "sudo apt update && pip install --user -r requirements.txt && git config --global user.name \"peacebeuponthee\" && git config --global user.email \"denis.tyutin@gmail.com\"",
