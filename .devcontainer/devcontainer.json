@@ -30,16 +30,16 @@
 	// ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt update && pip install --user -r requirements.txt && git config --global user.name \"peacebeuponthee\" && git config --global user.email \"denis.tyutin@gmail.com\"",
+	"postCreateCommand": "sudo apt update && pip install --user -r requirements.txt && git config --global user.name \"peacebeuponthee\" && git config --global user.email \"denis.tyutin@gmail.com\""
 
 	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ms-python.python"
-			]
-		}
-	}
+	// "customizations": {
+	// 	"vscode": {
+	// 		"extensions": [
+	// 			"ms-python.python"
+	// 		]
+	// 	}
+	// }
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
