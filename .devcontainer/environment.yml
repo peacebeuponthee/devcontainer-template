@@ -1,0 +1,8 @@
+name: jupyter
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - jupyter
+  - xarray
+  - pip
