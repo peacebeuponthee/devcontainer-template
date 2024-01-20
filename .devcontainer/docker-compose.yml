@@ -7,7 +7,8 @@ services:
       dockerfile: Dockerfile
     
     networks:
-      - smart-net
+      - devcontainer-net
+      - mqtt
     
     environment:
       - TEST_ENV_VAR=test-env-var
@@ -16,8 +17,7 @@ services:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock 
       # Update this to wherever you want VS Code to mount the folder of your project
-      # - ../..:/workspaces:cached
-      - /home/server/.docker/.workspaces:/workspaces/devcontainer-template/project:cached
+      # - /home/server/.docker/.workspaces:/workspaces/devcontainer-template/project:cached
 
     # Overrides default command so things don't shut down after the process ends.
     entrypoint: /usr/local/share/docker-init.sh
@@ -31,8 +31,14 @@ services:
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+    deploy:
+      placement:
+        constraints: [node.hostname == ceph0]
 
 networks:
-  smart-net:
-    name: smart-net
+  devcontainer-net:
+    name: devcontainer-net
+    external: true
+  mqtt:
+    name: mqtt
     external: true
