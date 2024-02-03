@@ -33,7 +33,9 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
     deploy:
       placement:
-        constraints: [node.hostname == ceph0]
+        constraints: 
+          - node.hostname == docker-desktop
+          - node.hostname == ceph0
 
 networks:
   devcontainer-net:
