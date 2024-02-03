@@ -6,9 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     
-    # networks:
-    #   - devcontainer-net
-    #   - mqtt
+    networks:
+      - smart-net
+      # - devcontainer-net
+      # - mqtt
     
     environment:
       - TEST_ENV_VAR=test-env-var
@@ -37,10 +38,10 @@ services:
           - node.hostname == docker-desktop
           - node.hostname == ceph0
 
-# networks:
-#   devcontainer-net:
-#     name: devcontainer-net
-#     external: true
+networks:
+  smart-net:
+    name: smart-net
+    external: true
 #   mqtt:
 #     name: mqtt
 #     external: true
